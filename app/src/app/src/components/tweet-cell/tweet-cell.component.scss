@@ -1,0 +1,45 @@
+app-modal {
+  display: none;
+}
+app-modal .app-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+}
+app-modal .app-modal .app-modal-body {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 10px;
+  width: 782px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 8px 34px #0000004d;
+  border-radius: 10px;
+  opacity: 1;
+  font-family: sans-serif;
+  color: red;
+  border: green solid;
+
+  &.wide-modal {
+    width: 1024px;
+  }
+}
+app-modal .app-modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.75;
+  z-index: 900;
+}
+body.app-modal-open {
+  overflow: hidden;
+}
