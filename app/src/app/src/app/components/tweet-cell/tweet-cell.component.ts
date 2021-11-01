@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
-import { ModalService } from './modal.service';
 
 @Component({
   selector: 'app-tweet-cell',
