@@ -1,0 +1,17 @@
+.mat-card {
+  background-color: white;
+  width: $card-width;
+  height: $card-height;
+  font-family: $body-font;
+  font-size: $font-size-h2;
+
+  .mat-card-header {
+    .mat-card-title {
+      font-size: $font-size-h1;
+    }
+    .mat-card-subtitle {
+      font-size: $font-size-h4;
+    }
+    font-weight: 500;
+  }
+}

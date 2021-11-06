@@ -6,6 +6,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from '../../model/user/login.request';
 
 @Component({
@@ -19,8 +20,20 @@ export class LoginComponentComponent {
 
   @Output() onLogin = new EventEmitter<LoginRequest>();
 
+  loginForm = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  });
 
-  foo(){
-    this.onLogin.emit();
+  login() {
+    if (!this.loginForm.valid) {
+      return;
+    }
+
+    const loginRequest: LoginRequest = {
+      ...this.loginForm.value,
+    };
+
+    this.onLogin.emit(loginRequest);
   }
 }

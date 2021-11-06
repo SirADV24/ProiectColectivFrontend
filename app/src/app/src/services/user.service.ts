@@ -18,19 +18,10 @@ export class UserService {
     //   loginRequest
     // );
 
-    
-    // Dummy aproach
-    
-    const error = new HttpErrorResponse({
-      status: 404, // Not found
+    return of({
+      userId: 1,
+      username: 'Gioni',
+      mail: 'gioni@mail.com',
     });
-
-    return Math.random() % 2 === 0
-      ? of({
-          userId: 1,
-          username: 'Adrian',
-          mail: 'adrian@mail.com',
-        })
-      : (of(error) as any);
   }
 }
