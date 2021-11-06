@@ -1,0 +1,11 @@
+@import './variables';
+@import './classes';
+@import './components/card';
+@import './components/input';
+@import './components/button';
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html {
+  background-color: $primary-color;
+}
