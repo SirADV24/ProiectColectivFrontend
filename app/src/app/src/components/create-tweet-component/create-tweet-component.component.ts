@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-create-tweet-component',
@@ -6,14 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-tweet-component.component.scss']
 })
 export class CreateTweetComponentComponent implements OnInit {
+  @Output() onCreateTweet = new EventEmitter<string>();
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  save(tweetText: string): void {
-    console.log("this is save "+tweetText);
+  save(tweetText: string) {
+    this.onCreateTweet.emit(tweetText);
   }
 
 }

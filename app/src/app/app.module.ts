@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponentComponent } from './src/components/login-component/login-component.component';
 import { LoginPageComponent } from './src/containers/login-page/login-page.component';
 import { UserService } from './src/services/user.service';
+import { TweetService } from './src/services/tweet.service';
 import { HomePageComponent } from './src/containers/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -78,7 +79,7 @@ const PAGES = [LoginPageComponent, HomePageComponent];
 
 const COMPONENTS = [LoginComponentComponent, CreateTweetComponentComponent];
 
-const SERVICES = [UserService];
+const SERVICES = [UserService, TweetService];
 
 @NgModule({
   declarations: [AppComponent, PAGES, COMPONENTS],
