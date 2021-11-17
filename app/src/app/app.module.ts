@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { LoginComponentComponent } from './src/components/login-component/login-component.component';
 import { LoginPageComponent } from './src/containers/login-page/login-page.component';
 import { UserService } from './src/services/user.service';
@@ -42,6 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { CreateTweetComponentComponent } from './src/components/create-tweet-component/create-tweet-component.component';
+import { TweetComponent } from './src/components/tweet/tweet.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const MODULES = [
   MatButtonModule,
@@ -73,7 +76,7 @@ const MODULES = [
   MatRadioModule,
   MatBadgeModule,
   DragDropModule,
-  MatExpansionModule,
+  MatExpansionModule
 ];
 const PAGES = [LoginPageComponent, HomePageComponent];
 
@@ -82,7 +85,8 @@ const COMPONENTS = [LoginComponentComponent, CreateTweetComponentComponent];
 const SERVICES = [UserService, TweetService];
 
 @NgModule({
-  declarations: [AppComponent, PAGES, COMPONENTS],
+  declarations: [AppComponent, 
+  TweetComponent, PAGES, COMPONENTS],
   imports: [
     BrowserModule,
     HttpClientModule,

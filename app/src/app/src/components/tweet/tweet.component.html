@@ -1,0 +1,38 @@
+  <div class="background">
+    <div class="card-header">
+      <div class="col">
+      <div class="row"><img src="assets/images/avatar/avatar.jpg" alt="image" class="avatar"/></div>
+      <div class="user">
+        <div class="row">{{user.name}} </div>
+        <div class="row">@{{user.account}}</div>
+      </div>
+      <div class="col end">
+      <div class="row svg">
+        <img src="assets/images/avatar/svg.svg" alt="image" class="avatar"/>
+      </div>
+      </div>
+    </div>
+    </div>
+        <div class="content">
+          <div class="user">
+          <div class="row over"><span>{{tweet.text}}</span></div>
+          <div class="row over"><span>{{tweet.date}}</span></div>
+          </div>
+        </div>
+        <hr class="line">
+        <div class="card-header">
+          <div class="col">
+              <div class="row">
+              <img src="assets/images/avatar/heart.svg" alt="image" class="heart"/>
+              </div>
+            <div class="row space">{{tweet.number_likes}}
+            </div>
+            <div class="row">
+              <img src="assets/images/avatar/message.svg" alt="image" class="heart"/>
+            </div>
+            <div class="row space">{{tweet.number_comments}}
+            </div>
+            </div>
+        </div>
+        
+  </div>
