@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-
-const routes: Routes = [
-  {path:'', component:AppComponent}
 import { HomePageComponent } from './src/containers/home-page/home-page.component';
 import { LoginPageComponent } from './src/containers/login-page/login-page.component';
 

@@ -44,7 +44,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { CreateTweetComponentComponent } from './src/components/create-tweet-component/create-tweet-component.component';
 import { TweetComponent } from './src/components/tweet/tweet.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 const MODULES = [
   MatButtonModule,
