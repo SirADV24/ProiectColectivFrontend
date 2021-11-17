@@ -1,0 +1,26 @@
+@use "sass:math";
+@import "~src/sass/variables";
+
+.login-card {
+  margin-left: calc(50vw - #{$card-width / 2});
+  margin-top: calc(50vh - #{$card-height / 2});
+}
+
+.header-image {
+  background-image: url("../../../../assets/pngs/rower-pangers.png");
+  background-size: cover;
+}
+
+.mat-card {
+  .mat-card-header {
+    height: 20%;
+  }
+}
+
+.mat-button{
+  margin-top: 20px;
+}
+
+.error {
+  color: $warn;
+}

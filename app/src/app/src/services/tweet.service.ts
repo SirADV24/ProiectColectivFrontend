@@ -1,8 +1,26 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { LoginResponse } from '../model/user/login.response';
+import { LoginRequest } from '../model/user/login.request';
+
+@Injectable()
 export class TweetService{
+  
+  private apiURL = '';
+  
+  private modals: any[] = [];
+
+  constructor(private httpClient: HttpClient) {}
+
+  createTweet(tweetText: string): void {
+    // Use this once API functionality is implemented
+
+    console.log(tweetText);
+  }
   home(since: string) {
     throw new Error('Method not implemented.');
   }
-  private modals: any[] = [];
 
     add(modal: any) {
         // add modal to array of active modals
@@ -26,3 +44,4 @@ export class TweetService{
         modal.close();
     }
 }
+
