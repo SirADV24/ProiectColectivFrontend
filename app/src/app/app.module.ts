@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponentComponent } from './src/components/login-component/login-component.component';
 import { LoginPageComponent } from './src/containers/login-page/login-page.component';
 import { UserService } from './src/services/user.service';
+import { TweetService } from './src/services/tweet.service';
 import { HomePageComponent } from './src/containers/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,6 +41,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { CreateTweetComponentComponent } from './src/components/create-tweet-component/create-tweet-component.component';
 
 const MODULES = [
   MatButtonModule,
@@ -75,9 +77,9 @@ const MODULES = [
 ];
 const PAGES = [LoginPageComponent, HomePageComponent];
 
-const COMPONENTS = [LoginComponentComponent];
+const COMPONENTS = [LoginComponentComponent, CreateTweetComponentComponent];
 
-const SERVICES = [UserService];
+const SERVICES = [UserService, TweetService];
 
 @NgModule({
   declarations: [AppComponent, PAGES, COMPONENTS],
