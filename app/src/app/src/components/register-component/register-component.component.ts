@@ -1,3 +1,4 @@
+import { getLocaleDateTimeFormat } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import {
   ChangeDetectionStrategy,
@@ -41,9 +42,11 @@ export class RegisterComponentComponent implements OnInit {
     const registerRequest: RegisterRequest = {
       ...this.registerForm.value,
     };
+    const myDate = new Date();
+    registerRequest.creationDate = myDate.toString();
 
     this.userService
-    .login(registerRequest)
+    .register(registerRequest)
     .pipe(
       tap((response) => {
         // Navigate to home page if register is successfully
