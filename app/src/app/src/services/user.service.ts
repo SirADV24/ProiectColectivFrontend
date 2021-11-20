@@ -13,7 +13,7 @@ export class UserService {
 
   login(loginRequest: LoginRequest): Observable<LoginResponse> {
     return this.httpClient.post<LoginResponse>(
-      `${this.apiURL}/login`,
+      `${this.apiURL}/sign-in`,
       loginRequest
     );
   }

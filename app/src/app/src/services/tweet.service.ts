@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { LoginResponse } from '../model/user/login.response';
-import { LoginRequest } from '../model/user/login.request';
+import { Tweet } from '../model/tweet.model';
 
 @Injectable()
 export class TweetService {
-  private apiURL = '';
+  private apiURL = 'http://localhost:8080/api/posts';
 
   private modals: any[] = [];
 
   constructor(private httpClient: HttpClient) {}
 
-  createTweet(tweetText: string): void {
-    // Use this once API functionality is implemented
-
-    console.log(tweetText);
+  createTweet(tweetText: string): Observable<Tweet> {
+    return this.httpClient.post<Tweet>(
+      `${this.apiURL}/create`,
+      {"description": tweetText}
+    );
   }
+
   home(since: string) {
     throw new Error('Method not implemented.');
   }
