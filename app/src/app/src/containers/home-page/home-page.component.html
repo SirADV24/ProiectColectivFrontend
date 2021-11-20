@@ -1,3 +1,17 @@
-<app-create-tweet-component
-    (onCreateTweet)="onCreateTweet($event)">
-</app-create-tweet-component>
+<app-sidenav> </app-sidenav>
+
+<!-- Left part -->
+
+<div class="left-screen">
+  <app-create-tweet-component (onCreateTweet)="onCreateTweet($event)">
+  </app-create-tweet-component>
+
+  <ng-container>
+    <div *ngFor="let tweet of dummyTweets">
+      <app-tweet [tweet]="tweet" [user]="dummyUsers[0]"> </app-tweet>
+    </div>
+  </ng-container>
+</div>
+<!-- Right part tbd -->
+
+<div class="right-screen"></div>

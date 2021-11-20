@@ -1,21 +1,29 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-create-tweet-component',
   templateUrl: './create-tweet-component.component.html',
-  styleUrls: ['./create-tweet-component.component.scss']
+  styleUrls: ['./create-tweet-component.component.scss'],
 })
-export class CreateTweetComponentComponent implements OnInit {
+export class CreateTweetComponentComponent {
   @Output() onCreateTweet = new EventEmitter<string>();
 
+  createTweetForm = new FormGroup({
+    text: new FormControl('', [Validators.required]),
+  });
 
-  constructor() { }
+  save() {
+    if (!this.createTweetForm.valid) {
+      return;
+    }
 
-  ngOnInit(): void {
-  }
+    const tweetText: string = {
+      ...this.createTweetForm.value,
+    };
 
-  save(tweetText: string) {
+    console.log(tweetText);
+
     this.onCreateTweet.emit(tweetText);
   }
-
 }

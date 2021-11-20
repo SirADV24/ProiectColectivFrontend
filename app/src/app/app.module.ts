@@ -46,6 +46,8 @@ import { CreateTweetComponentComponent } from './src/components/create-tweet-com
 import { TweetComponent } from './src/components/tweet/tweet.component';
 import { RegisterComponentComponent } from './src/components/register-component/register-component.component';
 import { RegisterPageComponent } from './src/containers/register-page/register-page.component';
+import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
+import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
 
 const MODULES = [
   MatButtonModule,
@@ -77,17 +79,27 @@ const MODULES = [
   MatRadioModule,
   MatBadgeModule,
   DragDropModule,
-  MatExpansionModule
+  MatExpansionModule,
 ];
-const PAGES = [LoginPageComponent, HomePageComponent, RegisterPageComponent];
+const PAGES = [
+  LoginPageComponent,
+  HomePageComponent,
+  RegisterPageComponent,
+  SidenavComponent,
+];
 
-const COMPONENTS = [LoginComponentComponent, CreateTweetComponentComponent, RegisterComponentComponent];
+const COMPONENTS = [
+  LoginComponentComponent,
+  CreateTweetComponentComponent,
+  RegisterComponentComponent,
+  TweetFeedComponent,
+  TweetComponent,
+];
 
 const SERVICES = [UserService, TweetService];
 
 @NgModule({
-  declarations: [AppComponent, 
-  TweetComponent, PAGES, COMPONENTS, RegisterComponentComponent, RegisterPageComponent],
+  declarations: [AppComponent, PAGES, COMPONENTS],
   imports: [
     BrowserModule,
     HttpClientModule,
