@@ -42,14 +42,13 @@ export class RegisterComponentComponent implements OnInit {
     const registerRequest: RegisterRequest = {
       ...this.registerForm.value,
     };
-    const myDate = new Date();
-    registerRequest.creationDate = myDate.toString();
 
     this.userService
     .register(registerRequest)
     .pipe(
       tap((response) => {
         // Navigate to home page if register is successfully
+        localStorage.setItem('JWT', response.accessToken);
         this.router.navigate(['home']);
       }),
       catchError((error) => {
