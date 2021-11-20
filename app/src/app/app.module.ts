@@ -44,6 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { CreateTweetComponentComponent } from './src/components/create-tweet-component/create-tweet-component.component';
 import { TweetComponent } from './src/components/tweet/tweet.component';
+import { RegisterComponentComponent } from './src/components/register-component/register-component.component';
+import { RegisterPageComponent } from './src/containers/register-page/register-page.component';
 import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
 import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
 
@@ -79,14 +81,25 @@ const MODULES = [
   DragDropModule,
   MatExpansionModule,
 ];
-const PAGES = [LoginPageComponent, HomePageComponent, SidenavComponent];
+const PAGES = [
+  LoginPageComponent,
+  HomePageComponent,
+  RegisterPageComponent,
+  SidenavComponent,
+];
 
-const COMPONENTS = [LoginComponentComponent, CreateTweetComponentComponent];
+const COMPONENTS = [
+  LoginComponentComponent,
+  CreateTweetComponentComponent,
+  RegisterComponentComponent,
+  TweetFeedComponent,
+  TweetComponent,
+];
 
 const SERVICES = [UserService, TweetService];
 
 @NgModule({
-  declarations: [AppComponent, TweetComponent, PAGES, COMPONENTS, TweetFeedComponent],
+  declarations: [AppComponent, PAGES, COMPONENTS],
   imports: [
     BrowserModule,
     HttpClientModule,

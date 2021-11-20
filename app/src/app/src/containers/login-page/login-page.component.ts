@@ -32,4 +32,7 @@ export class LoginPageComponent {
       )
       .subscribe();
   }
+  onRedirect(){
+    this.router.navigate(['register'])
+  }
 }

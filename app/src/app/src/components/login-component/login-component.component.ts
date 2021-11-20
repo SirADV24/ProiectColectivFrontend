@@ -19,6 +19,7 @@ export class LoginComponentComponent {
   @Input() error: HttpErrorResponse;
 
   @Output() onLogin = new EventEmitter<LoginRequest>();
+  @Output() onRedirect = new EventEmitter<void>();
 
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -36,4 +37,8 @@ export class LoginComponentComponent {
 
     this.onLogin.emit(loginRequest);
   }
+
+  redirectToRegister(){
+    this.onRedirect.emit();
+  } 
 }
