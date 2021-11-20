@@ -25,7 +25,8 @@ export class UserService {
 
   upsertCurrentUserAccount(updatedUser: User): Observable<User> {
     return this.httpClient.post<User>(`${this.apiURL}/upsertUser`, updatedUser);
-
+  }
+  
   register(registerRequest: RegisterRequest): Observable<LoginResponse> {
     return this.httpClient.post<LoginResponse>(
       `${this.apiURL}/sign-up`,

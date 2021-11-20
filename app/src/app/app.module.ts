@@ -103,13 +103,6 @@ const COMPONENTS = [
 const SERVICES = [UserService, TweetService];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TweetComponent,
-    PAGES,
-    COMPONENTS,
-    TweetFeedComponent,
-  ],
   declarations: [AppComponent, PAGES, COMPONENTS],
   imports: [
     BrowserModule,
