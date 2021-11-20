@@ -22,6 +22,7 @@ export class LoginPageComponent {
       .pipe(
         tap((response) => {
           // Navigate to home page if login is successfully
+          localStorage.setItem('JWT', response.accessToken);
           this.router.navigate(['home']);
         }),
         catchError((error) => {
