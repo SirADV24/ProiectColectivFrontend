@@ -44,6 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { CreateTweetComponentComponent } from './src/components/create-tweet-component/create-tweet-component.component';
 import { TweetComponent } from './src/components/tweet/tweet.component';
+import { RegisterComponentComponent } from './src/components/register-component/register-component.component';
+import { RegisterPageComponent } from './src/containers/register-page/register-page.component';
 import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
 import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
 import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
@@ -82,12 +84,20 @@ const MODULES = [
   MatExpansionModule,
   MatGridListModule,
 ];
-const PAGES = [LoginPageComponent, HomePageComponent, SidenavComponent];
+const PAGES = [
+  LoginPageComponent,
+  HomePageComponent,
+  RegisterPageComponent,
+  SidenavComponent,
+];
 
 const COMPONENTS = [
   LoginComponentComponent,
   CreateTweetComponentComponent,
   UserProfileComponent,
+  RegisterComponentComponent,
+  TweetFeedComponent,
+  TweetComponent,
 ];
 
 const SERVICES = [UserService, TweetService];
@@ -100,6 +110,7 @@ const SERVICES = [UserService, TweetService];
     COMPONENTS,
     TweetFeedComponent,
   ],
+  declarations: [AppComponent, PAGES, COMPONENTS],
   imports: [
     BrowserModule,
     HttpClientModule,
