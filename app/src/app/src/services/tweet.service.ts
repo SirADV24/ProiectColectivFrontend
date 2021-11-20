@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Tweet } from '../model/tweet.model';
 
@@ -11,10 +11,16 @@ export class TweetService {
 
   constructor(private httpClient: HttpClient) {}
 
-  createTweet(tweetText: string): Observable<Tweet> {
+  createTweet(description: string): Observable<Tweet> {
+    const auth: string = "Bearer "+localStorage.getItem('JWT');
     return this.httpClient.post<Tweet>(
       `${this.apiURL}/create`,
-      {"description": tweetText}
+      JSON.stringify(description),
+      {headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Access-Control-Allow-Origin': '*',
+        Authorization : 'Bearer '+localStorage.getItem('JWT')
+      })}
     );
   }
 
