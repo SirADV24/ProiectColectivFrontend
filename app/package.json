@@ -27,6 +27,7 @@
     "@ngrx/effects": "~12.2.0",
     "@ngrx/store": "~12.2.0",
     "@ngrx/store-devtools": "~12.2.0",
+    "angular-bootstrap-md": "^4.3.2",
     "angular2-uuid": "^1.1.1",
     "bootstrap-4-grid": "~3.4.0",
     "ng-oidc-client": "~2.0.4",

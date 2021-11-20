@@ -1,5 +1,16 @@
-<div class="tweetComponentContainerClass">
-<textarea class="tweetContent" placeholder="What's happening ?" #tweetText>
-</textarea>
-<button class="saveButton" (click)="save(tweetText.value)">Save</button>
+<div>
+  <form [formGroup]="createTweetForm">
+    <button mat-button class="w-25 mb-2" (click)="save()">
+      <span class="h2">Save</span>
+    </button>
+    <mat-form-field>
+      <mat-label>What are you thinking about ?</mat-label>
+      <textarea
+        matInput
+        formControlName="text"
+        placeholder="Enter your tweet"
+        autocomplete="off"
+      ></textarea>
+    </mat-form-field>
+  </form>
 </div>

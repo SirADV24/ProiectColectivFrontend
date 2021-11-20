@@ -5,10 +5,9 @@ import { LoginResponse } from '../model/user/login.response';
 import { LoginRequest } from '../model/user/login.request';
 
 @Injectable()
-export class TweetService{
-  
+export class TweetService {
   private apiURL = '';
-  
+
   private modals: any[] = [];
 
   constructor(private httpClient: HttpClient) {}
@@ -22,26 +21,25 @@ export class TweetService{
     throw new Error('Method not implemented.');
   }
 
-    add(modal: any) {
-        // add modal to array of active modals
-        this.modals.push(modal);
-    }
+  add(modal: any) {
+    // add modal to array of active modals
+    this.modals.push(modal);
+  }
 
-    remove(id: string) {
-        // remove modal from array of active modals
-        this.modals = this.modals.filter(x => x.id !== id);
-    }
+  remove(id: string) {
+    // remove modal from array of active modals
+    this.modals = this.modals.filter((x) => x.id !== id);
+  }
 
-    open(id: string) {
-        // open modal specified by id
-        let modal: any = this.modals.filter(x => x.id === id)[0];
-        modal.open();
-    }
+  open(id: string) {
+    // open modal specified by id
+    let modal: any = this.modals.filter((x) => x.id === id)[0];
+    modal.open();
+  }
 
-    close(id: string) {
-        // close modal specified by id
-        let modal: any = this.modals.filter(x => x.id === id)[0];
-        modal.close();
-    }
+  close(id: string) {
+    // close modal specified by id
+    let modal: any = this.modals.filter((x) => x.id === id)[0];
+    modal.close();
+  }
 }
-
