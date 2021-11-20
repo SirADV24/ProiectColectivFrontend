@@ -46,6 +46,8 @@ import { CreateTweetComponentComponent } from './src/components/create-tweet-com
 import { TweetComponent } from './src/components/tweet/tweet.component';
 import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
 import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
+import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const MODULES = [
   MatButtonModule,
@@ -78,15 +80,26 @@ const MODULES = [
   MatBadgeModule,
   DragDropModule,
   MatExpansionModule,
+  MatGridListModule,
 ];
 const PAGES = [LoginPageComponent, HomePageComponent, SidenavComponent];
 
-const COMPONENTS = [LoginComponentComponent, CreateTweetComponentComponent];
+const COMPONENTS = [
+  LoginComponentComponent,
+  CreateTweetComponentComponent,
+  UserProfileComponent,
+];
 
 const SERVICES = [UserService, TweetService];
 
 @NgModule({
-  declarations: [AppComponent, TweetComponent, PAGES, COMPONENTS, TweetFeedComponent],
+  declarations: [
+    AppComponent,
+    TweetComponent,
+    PAGES,
+    COMPONENTS,
+    TweetFeedComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

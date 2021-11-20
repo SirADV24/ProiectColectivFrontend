@@ -1,0 +1,60 @@
+<mat-card class="profile-card">
+  <mat-card-header> </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+    <img src="assets/images/avatar/avatar.jpg" alt="image" class="img" />
+      <div class="col">
+        <form [formGroup]="profileForm" novalidate>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="First name"
+              formControlName="firstName"
+            />
+            <mat-error
+              *ngIf="profileForm.controls['firstName'].hasError('required')"
+            >
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Last name"
+              formControlName="lastName"
+            />
+            <mat-error
+              *ngIf="profileForm.controls['lastName'].hasError('required')"
+            >
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" formControlName="email" />
+            <mat-error
+              *ngIf="profileForm.controls['email'].hasError('required')"
+            >
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="profileForm.controls['email'].hasError('email')">
+              Email is not in correct <strong>format</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput type="number" placeholder="Phone Number" formControlName="phoneNumber" />
+            <mat-error
+              *ngIf="profileForm.controls['phoneNumber'].hasError('required')"
+            >
+              Phone number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+    <button mat-button (click)="onDismiss()" class="close-button">
+        <span>Close</span>
+      </button>
+  </mat-card-content>
+</mat-card>

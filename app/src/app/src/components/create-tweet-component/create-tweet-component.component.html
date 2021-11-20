@@ -1,9 +1,6 @@
-<div>
+<div class="create-tweet">
   <form [formGroup]="createTweetForm">
-    <button mat-button class="w-25 mb-2" (click)="save()">
-      <span class="h2">Save</span>
-    </button>
-    <mat-form-field>
+    <mat-form-field  class="tweet-label">
       <mat-label>What are you thinking about ?</mat-label>
       <textarea
         matInput
@@ -13,4 +10,9 @@
       ></textarea>
     </mat-form-field>
   </form>
+</div>
+<div class="save-button">
+<button mat-button (click)="save()">
+  <span class="h2">Tweet</span>
+</button>
 </div>

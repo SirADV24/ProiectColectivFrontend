@@ -5,7 +5,7 @@
         <img src="assets/images/avatar/avatar.jpg" alt="image" class="avatar" />
       </div>
       <div class="user">
-        <div class="row">{{ user.name }}</div>
+        <div class="row">{{ user.firstName }}{{ user.lastName }}</div>
         <div class="row">@{{ user.account }}</div>
       </div>
       <div class="col end">
@@ -31,11 +31,11 @@
       <div class="row">
         <img src="assets/images/avatar/heart.svg" alt="image" class="heart" />
       </div>
-      <div class="row space">{{ tweet.number_likes }}</div>
+      <div class="row space">&nbsp;{{ tweet.number_likes }}</div>
       <div class="row">
         <img src="assets/images/avatar/message.svg" alt="image" class="heart" />
       </div>
-      <div class="row space">{{ tweet.number_comments }}</div>
+      <div class="row space">&nbsp;{{ tweet.number_comments }}</div>
     </div>
   </div>
 </div>
