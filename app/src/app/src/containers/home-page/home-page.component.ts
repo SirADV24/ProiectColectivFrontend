@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
 export class HomePageComponent implements OnInit {
   dataTweets: Tweet[] = [];
 
-  dataUsers: User[] = [];
+  dataUser: User;
 
   constructor(private tweetService: TweetService, private userService : UserService, private router: Router) {}
 

@@ -22,7 +22,8 @@ export class UserService {
   }
   
   getUser(): Observable<User> {
-    return this.httpClient.get<User>(`${this.apiURL}/api/users`,
+    console.log("Orice")
+    return this.httpClient.get<User>(`${this.apiURL}/api/users/`,
     { headers: this.headers }
     );
   }
