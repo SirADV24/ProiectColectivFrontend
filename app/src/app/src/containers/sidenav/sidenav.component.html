@@ -1,8 +1,20 @@
 <mat-toolbar>
-  <span>Twitter</span>
+  <span class="title">Twitter</span>
   <div class="spacer"></div>
   <a mat-button> <span class="material-icons mr-2"> home </span> Home</a>
-  <a mat-button>
+  <a mat-button [matMenuTriggerFor]="userMenu">
     <span class="material-icons mr-2"> account_circle </span> Account
   </a>
 </mat-toolbar>
+
+<mat-menu #userMenu="">
+  <div class="user-preview" (click)="$event.stopPropagation()">
+    <img src="assets/images/avatar/avatar.jpg" alt="image" class="avatar" />
+    <div class="user-info">
+      <span>{{ user.firstName }} {{ user.lastName }} </span>
+    </div>
+  </div>
+  <button mat-menu-item class="link" (click)="openUserDetails()" >User Profile</button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>

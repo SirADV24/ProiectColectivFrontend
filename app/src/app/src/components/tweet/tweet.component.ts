@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tweet } from '../../model/tweet.model';
 import { User } from '../../model/user.model';
+import { TweetService } from '../../services/tweet.service';
 
 @Component({
   selector: 'app-tweet',
@@ -11,9 +12,11 @@ export class TweetComponent implements OnInit {
   // tweet: Tweet = new Tweet();
 
   @Input() tweet: Tweet;
-  @Input() user: User;
+  // @Input() user: User;
+
 
   ngOnInit() {
+    console.log(this.tweet);
     // this.user.name = 'Manuela';
     // this.user.account = 'manuelamag';
     // this.tweet.text = 'Hello! This is my first post!';
@@ -29,4 +32,6 @@ export class TweetComponent implements OnInit {
     //   ' ' +
     //   new Date().getFullYear().toString();
   }
+
+  
 }
