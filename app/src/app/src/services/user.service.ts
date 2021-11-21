@@ -34,7 +34,7 @@ export class UserService {
   
   register(registerRequest: RegisterRequest): Observable<LoginResponse> {
     return this.httpClient.post<LoginResponse>(
-      `${this.apiURL}/sign-up`,
+      `${this.apiURL}/login/sign-up`,
       registerRequest
     );
   }
