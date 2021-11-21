@@ -70,11 +70,14 @@ export class HomePageComponent implements OnInit {
   }
 
   onCreateTweet(tweetText: string) {
+    console.log("home page");
+    console.log(tweetText);
     this.tweetService
     .createTweet(tweetText)
     .pipe(
       tap((response: Tweet) => {
-          this.dummyTweets.push(response)
+          this.dataTweets.push(response)
+          console.log(response)
       }),
       catchError((error) => {
         this.error = error;

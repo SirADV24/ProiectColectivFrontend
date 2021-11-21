@@ -18,9 +18,7 @@ export class CreateTweetComponentComponent {
       return;
     }
 
-    const tweetText: string = {
-      ...this.createTweetForm.value,
-    };
+    const tweetText: string = this.createTweetForm.get("text")?.value
 
     console.log(tweetText);
 

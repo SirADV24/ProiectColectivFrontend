@@ -19,8 +19,8 @@ export class TweetService {
   createTweet(description: string): Observable<Tweet> {
     const auth: string = "Bearer "+localStorage.getItem('JWT');
     return this.httpClient.post<Tweet>(
-      `${this.apiURL}/create`,
-      JSON.stringify(description),
+      `${this.apiURL}/posts/create`,
+      description,
       {headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Access-Control-Allow-Origin': '*',
