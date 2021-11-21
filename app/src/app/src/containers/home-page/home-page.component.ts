@@ -16,7 +16,8 @@ export class HomePageComponent implements OnInit {
   error: HttpErrorResponse;
   dummyTweets: Tweet[] = [];
   dataTweets: Tweet[] = [];
-  dataUsers: User[] = [];
+
+  dataUser: User;
 
   constructor(private tweetService: TweetService, private userService : UserService, private router: Router) {}
 
