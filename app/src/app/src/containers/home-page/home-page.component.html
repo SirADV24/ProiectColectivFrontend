@@ -9,8 +9,8 @@
 <div class="left-screen">
 
   <ng-container>
-    <div *ngFor="let tweet of dummyTweets" class="tweets">
-      <app-tweet [tweet]="tweet" [user]="dummyUsers[0]"> </app-tweet>
+    <div *ngFor="let tweet of dataTweets">
+      <app-tweet [tweet]="tweet"> </app-tweet>
     </div>
   </ng-container>
 </div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Tweet } from '../../model/tweet.model';
 import { User } from '../../model/user.model';
 import { TweetService } from '../../services/tweet.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,66 +11,74 @@ import { TweetService } from '../../services/tweet.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  dummyTweets: Tweet[] = [];
+  dataTweets: Tweet[] = [];
 
-  dummyUsers: User[] = [];
+  dataUsers: User[] = [];
 
-  constructor(private tweetService: TweetService, private router: Router) {}
+  constructor(private tweetService: TweetService, private userService : UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.dummyUsers = [
-      {
-        id: 0,
-        firstName: 'Gioni',
-        lastName: 'Flori',
-        account: 'Gionisimio El gioni',
-      },
-    ];
-    this.dummyTweets = [
-      {
-        id: 0,
-        text: 'Heloo',
-        user: this.dummyUsers[0],
-        date: '15-15-2020',
-        number_comments: 3,
-        number_likes: 2,
-      },
-      {
-        id: 0,
-        text: 'Heloo',
-        user: this.dummyUsers[0],
-        date: '15-15-2020',
-        number_comments: 5,
-        number_likes: 2,
-      },
-      {
-        id: 0,
-        text: 'Heloo',
-        user: this.dummyUsers[0],
-        date: '15-15-2020',
-        number_comments: 5,
-        number_likes: 2,
-      },
-      {
-        id: 0,
-        text: 'Heloo',
-        user: this.dummyUsers[0],
-        date: '15-15-2020',
-        number_comments: 5,
-        number_likes: 2,
-      },
-      {
-        id: 0,
-        text: 'Heloo',
-        user: this.dummyUsers[0],
-        date: '15-15-2020',
-        number_comments: 5,
-        number_likes: 2,
-      },
-    ];
+    console.log("Here");
+    this.getUsers();
+    this.getTweets();
+
+    // this.dummyUsers = [
+    //   {
+    //     id: 0,
+    //     name: 'Gioni',
+    //     account: 'Gionisimio El gioni',
+    //   },
+    // ];
+    // this.dummyTweets = [
+    //   {
+    //     id: 0,
+    //     text: 'Heloo',
+    //     user: this.dummyUsers[0],
+    //     date: '15-15-2020',
+    //     number_comments: 3,
+    //     number_likes: 2,
+    //   },
+    //   {
+    //     id: 0,
+    //     text: 'Heloo',
+    //     user: this.dummyUsers[0],
+    //     date: '15-15-2020',
+    //     number_comments: 5,
+    //     number_likes: 2,
+    //   },
+    //   {
+    //     id: 0,
+    //     text: 'Heloo',
+    //     user: this.dummyUsers[0],
+    //     date: '15-15-2020',
+    //     number_comments: 5,
+    //     number_likes: 2,
+    //   },
+    //   {
+    //     id: 0,
+    //     text: 'Heloo',
+    //     user: this.dummyUsers[0],
+    //     date: '15-15-2020',
+    //     number_comments: 5,
+    //     number_likes: 2,
+    //   },
+    // ];
+
   }
 
   onCreateTweet(tweetText: string) {
     this.tweetService.createTweet(tweetText);
+  }
+
+  getUsers(){
+    console.log(this.userService.getUser());
+  }
+
+  getTweets(){
+    this.tweetService.getPost()
+      .subscribe((res) => {
+        console.log(res);
+        this.dataTweets = res;
+      });
   }
 }
