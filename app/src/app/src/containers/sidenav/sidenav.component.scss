@@ -4,6 +4,51 @@
   flex: 1 1 auto;
 }
 
-.mat-toolbar {
+.title {
+  font-weight: bold;
+  font-size:x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 15px;
+}
+
+
+.user-preview {
+  display: flex;
+  padding: 10px;
+  width: 250px;
+
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 10px;
+  }
+
+  span {
+    &:first-child {
+      font-family: "Open Sans";
+    }
+  }
+}
+
+::ng-deep .mat-toolbar{
+  display:flex;
+  z-index: 998;
+  position: sticky;
+  top: 0;
   color: $secondary-color;
+  justify-content: space-between;
+}
+
+::ng-deep {
+  .user-profile-container .mat-dialog-container {
+    padding: unset;
+    border-radius: 15px;
+  }
 }

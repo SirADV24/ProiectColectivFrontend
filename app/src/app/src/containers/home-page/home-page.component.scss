@@ -1,5 +1,23 @@
 .left-screen {
-  position: absolute;
+  position: relative;
   height: 100vh;
-  width: 75%;
+  width: 100%;
+  margin-top:10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.center {
+  position: relative;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tweets {
+  margin-top: 5px;
 }

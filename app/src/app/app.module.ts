@@ -48,6 +48,8 @@ import { RegisterComponentComponent } from './src/components/register-component/
 import { RegisterPageComponent } from './src/containers/register-page/register-page.component';
 import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
 import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
+import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const MODULES = [
   MatButtonModule,
@@ -80,6 +82,7 @@ const MODULES = [
   MatBadgeModule,
   DragDropModule,
   MatExpansionModule,
+  MatGridListModule,
 ];
 const PAGES = [
   LoginPageComponent,
@@ -91,6 +94,7 @@ const PAGES = [
 const COMPONENTS = [
   LoginComponentComponent,
   CreateTweetComponentComponent,
+  UserProfileComponent,
   RegisterComponentComponent,
   TweetFeedComponent,
   TweetComponent,

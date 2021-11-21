@@ -1,13 +1,15 @@
 <app-sidenav> </app-sidenav>
 
 <!-- Left part -->
+<div class="center">
+<app-create-tweet-component (onCreateTweet)="onCreateTweet($event)">
+</app-create-tweet-component>
+</div>
 
 <div class="left-screen">
-  <app-create-tweet-component (onCreateTweet)="onCreateTweet($event)">
-  </app-create-tweet-component>
 
   <ng-container>
-    <div *ngFor="let tweet of dummyTweets">
+    <div *ngFor="let tweet of dummyTweets" class="tweets">
       <app-tweet [tweet]="tweet" [user]="dummyUsers[0]"> </app-tweet>
     </div>
   </ng-container>

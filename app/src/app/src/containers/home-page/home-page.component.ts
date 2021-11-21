@@ -20,7 +20,8 @@ export class HomePageComponent implements OnInit {
     this.dummyUsers = [
       {
         id: 0,
-        name: 'Gioni',
+        firstName: 'Gioni',
+        lastName: 'Flori',
         account: 'Gionisimio El gioni',
       },
     ];
@@ -31,6 +32,14 @@ export class HomePageComponent implements OnInit {
         user: this.dummyUsers[0],
         date: '15-15-2020',
         number_comments: 3,
+        number_likes: 2,
+      },
+      {
+        id: 0,
+        text: 'Heloo',
+        user: this.dummyUsers[0],
+        date: '15-15-2020',
+        number_comments: 5,
         number_likes: 2,
       },
       {
