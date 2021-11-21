@@ -16,11 +16,19 @@ export class TweetService {
 
   constructor(private httpClient: HttpClient) {}
 
-  createTweet(tweetText: string): void {
-    // Use this once API functionality is implemented
-
-    console.log(tweetText);
+  createTweet(description: string): Observable<Tweet> {
+    const auth: string = "Bearer "+localStorage.getItem('JWT');
+    return this.httpClient.post<Tweet>(
+      `${this.apiURL}/posts/create`,
+      description,
+      {headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Access-Control-Allow-Origin': '*',
+        Authorization : 'Bearer '+localStorage.getItem('JWT')
+      })}
+    );
   }
+
   home(since: string) {
     throw new Error('Method not implemented.');
   }

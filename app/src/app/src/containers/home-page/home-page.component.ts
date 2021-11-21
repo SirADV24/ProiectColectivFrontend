@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Tweet } from '../../model/tweet.model';
 import { User } from '../../model/user.model';
 import { TweetService } from '../../services/tweet.service';
+import { catchError, of, tap } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -11,6 +13,8 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
+  error: HttpErrorResponse;
+  dummyTweets: Tweet[] = [];
   dataTweets: Tweet[] = [];
 
   dataUser: User;
@@ -67,7 +71,22 @@ export class HomePageComponent implements OnInit {
   }
 
   onCreateTweet(tweetText: string) {
-    this.tweetService.createTweet(tweetText);
+    console.log("home page");
+    console.log(tweetText);
+    this.tweetService
+    .createTweet(tweetText)
+    .pipe(
+      tap((response: Tweet) => {
+          this.dataTweets.push(response)
+          console.log(response)
+      }),
+      catchError((error) => {
+        this.error = error;
+
+        return of(false);
+      })
+    )
+    .subscribe();;
   }
 
   getUsers(){
