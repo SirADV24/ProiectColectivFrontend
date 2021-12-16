@@ -11,6 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    data:{reuseComponent: true},
     component: HomePageComponent,
   },
   {

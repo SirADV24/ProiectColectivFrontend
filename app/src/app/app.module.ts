@@ -50,6 +50,7 @@ import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
 import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
 import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { LikeService } from './src/services/like.service';
 
 const MODULES = [
   MatButtonModule,
@@ -100,7 +101,7 @@ const COMPONENTS = [
   TweetComponent,
 ];
 
-const SERVICES = [UserService, TweetService];
+const SERVICES = [UserService, TweetService, LikeService];
 
 @NgModule({
   declarations: [AppComponent, PAGES, COMPONENTS],

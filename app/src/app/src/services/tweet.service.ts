@@ -1,8 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, of, tap } from 'rxjs';
-import { LoginResponse } from '../model/user/login.response';
-import { LoginRequest } from '../model/user/login.request';
+import { Observable } from 'rxjs';
 import { Tweet } from '../model/tweet.model';
 
 @Injectable()
@@ -59,6 +57,13 @@ export class TweetService {
     console.log("Token "  + this.accessToken)
     return this.httpClient.get<Tweet[]>(
       `${this.apiURL}/posts`,
+      { headers: this.headers }
+      );
+    }
+
+  likePost(postId: number){
+    return this.httpClient.get<Tweet>(
+      `${this.apiURL}/posts/like/${postId}`,
       { headers: this.headers }
       );
     }
