@@ -22,57 +22,12 @@ export class HomePageComponent implements OnInit {
   constructor(private tweetService: TweetService, private userService : UserService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log("Here");
     this.getUsers();
     this.getTweets();
-
-    // this.dummyUsers = [
-    //   {
-    //     id: 0,
-    //     name: 'Gioni',
-    //     account: 'Gionisimio El gioni',
-    //   },
-    // ];
-    // this.dummyTweets = [
-    //   {
-    //     id: 0,
-    //     text: 'Heloo',
-    //     user: this.dummyUsers[0],
-    //     date: '15-15-2020',
-    //     number_comments: 3,
-    //     number_likes: 2,
-    //   },
-    //   {
-    //     id: 0,
-    //     text: 'Heloo',
-    //     user: this.dummyUsers[0],
-    //     date: '15-15-2020',
-    //     number_comments: 5,
-    //     number_likes: 2,
-    //   },
-    //   {
-    //     id: 0,
-    //     text: 'Heloo',
-    //     user: this.dummyUsers[0],
-    //     date: '15-15-2020',
-    //     number_comments: 5,
-    //     number_likes: 2,
-    //   },
-    //   {
-    //     id: 0,
-    //     text: 'Heloo',
-    //     user: this.dummyUsers[0],
-    //     date: '15-15-2020',
-    //     number_comments: 5,
-    //     number_likes: 2,
-    //   },
-    // ];
 
   }
 
   onCreateTweet(tweetText: string) {
-    console.log("home page");
-    console.log(tweetText);
     this.tweetService
     .createTweet(tweetText)
     .pipe(

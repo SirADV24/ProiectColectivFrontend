@@ -6,7 +6,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
+  justify-content: space-between;
 }
 
 .center {
@@ -22,7 +22,15 @@
   margin-top: 5px;
 }
 
-.vl {
-  border-left: 6px solid green;
-  height: 500px;
+
+.posts{
+  border-left: solid gray;
+  border-right: solid gray;
+  width: min-content;
+  flex-direction: row;
+  position: absolute;
+  overflow: scroll;
+  margin-left: 400px;
+  height: 100%;
+  background-color: rgba(66, 79, 80, 0.856);
 }
