@@ -1,0 +1,22 @@
+<app-sidenav> </app-sidenav>
+
+<div class="posts">
+<div class="col">
+<div class="center">
+  <app-profile></app-profile>
+  </div>
+</div>
+<div class="col">
+<div class="left-screen">
+
+  <ng-container>
+    <div *ngFor="let tweet of dataTweets">
+      <app-tweet [tweet]="tweet"> </app-tweet>
+    </div>
+  </ng-container>
+</div>
+</div>
+<!-- Right part tbd -->
+
+</div>
+<div class="right-screen"></div>

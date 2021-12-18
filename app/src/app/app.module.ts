@@ -50,6 +50,8 @@ import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
 import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
 import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ProfilePageComponent } from './src/containers/profile-page/profile-page.component';
+import { ProfileComponent } from './src/components/profile/profile.component';
 import { LikeService } from './src/services/like.service';
 
 const MODULES = [
@@ -99,12 +101,13 @@ const COMPONENTS = [
   RegisterComponentComponent,
   TweetFeedComponent,
   TweetComponent,
+  ProfilePageComponent
 ];
 
 const SERVICES = [UserService, TweetService, LikeService];
 
 @NgModule({
-  declarations: [AppComponent, PAGES, COMPONENTS],
+  declarations: [AppComponent, PAGES, COMPONENTS, ProfileComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

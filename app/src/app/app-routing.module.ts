@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './src/containers/home-page/home-page.component';
 import { LoginPageComponent } from './src/containers/login-page/login-page.component';
+import { ProfilePageComponent } from './src/containers/profile-page/profile-page.component';
 import { RegisterPageComponent } from './src/containers/register-page/register-page.component';
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
     path: 'home',
     data:{reuseComponent: true},
     component: HomePageComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
   },
   {
     path: 'register',

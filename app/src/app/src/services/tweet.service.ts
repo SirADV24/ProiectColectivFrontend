@@ -27,10 +27,6 @@ export class TweetService {
     );
   }
 
-  home(since: string) {
-    throw new Error('Method not implemented.');
-  }
-
   add(modal: any) {
     // add modal to array of active modals
     this.modals.push(modal);
@@ -54,12 +50,18 @@ export class TweetService {
   }
 
   getPost(){
-    console.log("Token "  + this.accessToken)
     return this.httpClient.get<Tweet[]>(
       `${this.apiURL}/posts`,
       { headers: this.headers }
       );
     }
+  
+  getPostsForUser(id : number){
+    return this.httpClient.get<Tweet[]>(
+      `${this.apiURL}/posts/${id}`,
+      { headers: this.headers }
+      );
+  }
 
   likePost(postId: number){
     return this.httpClient.get<Tweet>(
