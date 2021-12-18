@@ -6,6 +6,7 @@ import { TweetService } from '../../services/tweet.service';
 import { catchError, of, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
+import { LikeService } from '../../services/like.service';
 
 @Component({
   selector: 'app-home-page',
@@ -19,7 +20,7 @@ export class HomePageComponent implements OnInit {
 
   dataUser: User;
 
-  constructor(private tweetService: TweetService, private userService : UserService, private router: Router) {}
+  constructor(private tweetService: TweetService, private userService : UserService, private likeService: LikeService, private router: Router) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -42,6 +43,23 @@ export class HomePageComponent implements OnInit {
       })
     )
     .subscribe();;
+  }
+
+  onLikeTweet(tweetId: number) {
+    this.tweetService
+      .likePost(tweetId)
+      .pipe(
+        tap((response: Tweet) => {
+            const indexTweet = this.dataTweets.findIndex(tweet => tweet.id === tweetId);
+            this.dataTweets[indexTweet].number_likes = response.number_likes;
+        }),
+        catchError((error) => {
+          this.error = error;
+  
+          return of(false);
+        })
+      )
+      .subscribe();;
   }
 
   getUsers(){

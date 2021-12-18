@@ -10,7 +10,7 @@
 
   <ng-container>
     <div *ngFor="let tweet of dataTweets">
-      <app-tweet [tweet]="tweet"> </app-tweet>
+      <app-tweet [tweet]="tweet" (onLikeTweet)="onLikeTweet($event)"> </app-tweet>
     </div>
   </ng-container>
 </div>

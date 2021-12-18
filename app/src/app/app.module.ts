@@ -52,6 +52,7 @@ import { UserProfileComponent } from './src/components/user-profile-component/us
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProfilePageComponent } from './src/containers/profile-page/profile-page.component';
 import { ProfileComponent } from './src/components/profile/profile.component';
+import { LikeService } from './src/services/like.service';
 
 const MODULES = [
   MatButtonModule,
@@ -103,7 +104,7 @@ const COMPONENTS = [
   ProfilePageComponent
 ];
 
-const SERVICES = [UserService, TweetService];
+const SERVICES = [UserService, TweetService, LikeService];
 
 @NgModule({
   declarations: [AppComponent, PAGES, COMPONENTS, ProfileComponent],
