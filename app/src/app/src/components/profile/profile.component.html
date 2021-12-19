@@ -10,8 +10,13 @@
 </mat-card>
   <mat-card *ngIf="!loading" class="content">
     <div class="user">
-        <div class="row over text"><span>Tweets</span><span>To be done</span></div>
-
-        <div class="row over text"><span>Followers</span><span>To be done</span></div>
+        <div class="row over text"><span>Tweets</span>
+          <app-tweet *ngFor="let tweet of this.tweets" [tweet]="tweet"></app-tweet>
+        </div>
+        <div class="row over text"><span>Followers</span>
+          <ul *ngFor="let follower of user.followers">
+            <li>{{follower.firstName}}</li>
+          </ul>
+        </div>
     </div>
 </mat-card>

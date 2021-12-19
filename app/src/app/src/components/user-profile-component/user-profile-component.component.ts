@@ -22,14 +22,15 @@ export class UserProfileComponent implements OnInit {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<User>,
     private userService: UserService
-  ) {
-    this.profileForm = this.buildProfileFormGroup();
-  }
+  ) {}
 
   ngOnInit() {
     console.log(this.data.user)
-    this.profileForm = this.buildProfileFormGroup();
-    this.patchProfileFormGroup(this.data.user);
+    this.userService.getUser().subscribe(user => {
+      this.currentUserAccount = user;
+      this.profileForm = this.buildProfileFormGroup();
+      this.patchProfileFormGroup(this.data.user);
+    });
   }
 
   onDismiss() {
@@ -40,12 +41,11 @@ export class UserProfileComponent implements OnInit {
     const form = this.fb.group(
       {
         email: [
-          { value: '' },
+          { value: this.currentUserAccount.email },
           Validators.compose([Validators.required, Validators.email]),
         ],
-        phoneNumber: [null, Validators.required],
-        firstName: [{ value: '' }, Validators.required],
-        lastName: [{ value: '' }, Validators.required],
+        firstName: [{ value: this.currentUserAccount.firstName }, Validators.required],
+        lastName: [{ value: this.currentUserAccount.lastName }, Validators.required],
       },
       {
         updateOn: 'blur',
@@ -63,7 +63,6 @@ export class UserProfileComponent implements OnInit {
   private patchProfileFormGroup(userAccount: User) {
     const formValue: User = {
       email: userAccount?.email,
-      phoneNumber: userAccount?.phoneNumber,
       firstName: userAccount?.firstName,
       lastName: userAccount?.lastName,
     };

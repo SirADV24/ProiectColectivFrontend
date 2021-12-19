@@ -7,4 +7,5 @@ export interface User{
   phoneNumber?: number,
   creationDate?: Date,
   following?: User[],
+  followers?: User[]
 }

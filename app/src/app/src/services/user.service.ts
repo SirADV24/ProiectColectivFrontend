@@ -49,4 +49,6 @@ export class UserService {
       { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
     )
   }
+
+
 }

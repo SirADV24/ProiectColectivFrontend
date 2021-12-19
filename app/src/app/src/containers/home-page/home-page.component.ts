@@ -55,11 +55,11 @@ export class HomePageComponent implements OnInit {
         }),
         catchError((error) => {
           this.error = error;
-  
+
           return of(false);
         })
       )
-      .subscribe();;
+      .subscribe();
   }
 
   getUsers(){

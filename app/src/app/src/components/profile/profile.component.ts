@@ -3,6 +3,8 @@ import { User } from '../../model/user.model';
 import { UserService } from '../../services/user.service';
 import {ActivatedRoute, Router} from "@angular/router";
 import {tap} from "rxjs";
+import {TweetService} from "../../services/tweet.service";
+import {Tweet} from "../../model/tweet.model";
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +16,9 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
   userId: number;
   loading: boolean = false;
-
-  constructor(private userService : UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  tweets: Tweet[];
+  constructor(private userService : UserService, private activatedRoute: ActivatedRoute, private router: Router,
+              private tweetService: TweetService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
@@ -23,10 +26,12 @@ export class ProfileComponent implements OnInit {
         this.userId = +params.id
         this.loading = true;
         this.getUser();
+        this.tweetService.getPostsForUser(this.userId).subscribe(x => {this.tweets = x});
       })
     ).subscribe();
-
     this.currentUser = JSON.parse(localStorage.getItem('user'));
+
+
   }
 
   getUser(){
