@@ -51,11 +51,11 @@ export class TweetService {
 
   getPost(){
     return this.httpClient.get<Tweet[]>(
-      `${this.apiURL}/posts`,
+      `${this.apiURL}/posts/followed`,
       { headers: this.headers }
       );
     }
-  
+
   getPostsForUser(id : number){
     return this.httpClient.get<Tweet[]>(
       `${this.apiURL}/posts/${id}`,

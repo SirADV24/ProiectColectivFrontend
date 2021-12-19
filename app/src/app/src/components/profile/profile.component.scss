@@ -55,12 +55,6 @@
   width: 100%;
 }
 
-.line{
-  width: 95%;
-  color: black;
-  background-color: blue;
-}
-
 .svg{
   display: flex;
   justify-content: flex-end;
@@ -70,7 +64,8 @@
 .content{
   display: flex;
   justify-content: flex-start;
-  padding-left: 15px;
+  margin-left:15%;
+  width: 70%;
 }
 
 .col{
@@ -93,12 +88,11 @@
 }
 
 .background{
-  background-color: rgb(183, 253, 250);
-  border-radius: 10px;
-  width: 600px;
-  height: 240px;
-  margin-top: 0px;
-  border-color: rgb(144, 42, 165) solid;
+  background-color: white;
+  width: 70%;
+  height: 300px;
+  margin-left: 15%;
+  position: relative;
 }
 
 .vl {

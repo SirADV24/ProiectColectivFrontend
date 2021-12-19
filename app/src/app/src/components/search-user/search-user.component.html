@@ -1,0 +1,17 @@
+
+<form [formGroup]="searchForm" class="searchBar">
+  <mat-form-field appearance="fill">
+    <input type="text"
+           matInput
+           (change)="onSearchTextChange($event)"
+           [matAutocomplete]="autoGroup">
+    <mat-autocomplete #autoGroup="matAutocomplete">
+      <mat-option *ngFor="let result of groupBy(searchResults)" [value]="result.user.firstName" (onSelectionChange)="navigateToUser(result.user)">
+        {{result.user.firstName + " " + result.text}}
+      </mat-option>
+
+      <mat-option *ngIf="searchResults?.length === 0">No results</mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+

@@ -12,11 +12,10 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    data:{reuseComponent: true},
     component: HomePageComponent,
   },
   {
-    path: 'profile',
+    path: 'profile/:id',
     component: ProfilePageComponent,
   },
   {

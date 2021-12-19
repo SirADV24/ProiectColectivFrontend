@@ -1,27 +1,17 @@
-<div class="background">
-  <div class="card-header">
-    <div class="col green">
-      <div class="col">
-        <div class="row">
-        <img src="assets/images/avatar/avatar.jpg" alt="image" class="avatar" />
-        <div class="row info red">
-          <div class="col"><span>{{user.firstName}} {{user.lastName}}</span></div>
-          <div class="col"><span>@{{user.account}}</span></div>
-        </div>
+<mat-card *ngIf="!loading" class="background">
+      <img src="assets/images/avatar/avatar.jpg" alt="image" class="avatar"/>
+      <div class="row info red">
+        <div class="col"><span>{{user?.firstName}} {{user?.lastName}}</span></div>
+        <div class="col"><span>@{{user?.account}}</span></div>
+        <button mat-button (click)="goBack()">Go back</button>
+        <button mat-button *ngIf="!isFollowing()" (click)="follow()">Follow this person</button>
+        <button mat-button *ngIf="isFollowing()">Unfollow this person</button>
       </div>
-      </div>
-
-      <div class="row blue"><span>Here is a looooong biography</span></div>
-    </div>
-  <hr class="line"/>
-  <div class="content">
+</mat-card>
+  <mat-card *ngIf="!loading" class="content">
     <div class="user">
-      <div class="col centered">
-        <div class="row over text"><span>Tweets</span></div>
-        <div class="row over text"><span>Followers</span></div>
-        <div class="row over text"><span>Followings</span></div>
-        <div class="row over text"><span>Likes</span></div>
+        <div class="row over text"><span>Tweets</span><span>To be done</span></div>
 
-      </div>
+        <div class="row over text"><span>Followers</span><span>To be done</span></div>
     </div>
-  </div>
+</mat-card>

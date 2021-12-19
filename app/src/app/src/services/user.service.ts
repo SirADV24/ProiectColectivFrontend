@@ -9,7 +9,6 @@ import { RegisterRequest } from '../model/user/register.request';
 @Injectable()
 export class UserService {
   private apiURL = 'http://localhost:8080';
-  private headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") });
 
 
   constructor(private httpClient: HttpClient) {}
@@ -20,22 +19,34 @@ export class UserService {
       loginRequest
     );
   }
-  
+
   getUser(): Observable<User> {
-    console.log("Orice")
-    return this.httpClient.get<User>(`${this.apiURL}/api/users/`,
-    { headers: this.headers }
+    return this.httpClient.get<User>(`${this.apiURL}/api/users`,
+    { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
+    );
+  }
+
+  getUserAccount(userId: number): Observable<User>{
+    return this.httpClient.get<User>(`${this.apiURL}/api/users/${userId}`,
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
     );
   }
 
   upsertCurrentUserAccount(updatedUser: User): Observable<User> {
     return this.httpClient.post<User>(`${this.apiURL}`, updatedUser);
   }
-  
+
   register(registerRequest: RegisterRequest): Observable<LoginResponse> {
     return this.httpClient.post<LoginResponse>(
       `${this.apiURL}/login/sign-up`,
       registerRequest
     );
+  }
+
+  followUser(userId: number){
+    return this.httpClient.get<User>(
+      `${this.apiURL}/api/users/follow/${userId}`,
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
+    )
   }
 }
