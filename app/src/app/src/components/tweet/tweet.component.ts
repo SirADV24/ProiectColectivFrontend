@@ -22,6 +22,7 @@ export class TweetComponent implements OnInit {
   }
 
   likePost() {
+    !this.isLikedPost ? this.tweet.number_likes = this.tweet.number_likes + 1 : this.tweet.number_likes = this.tweet.number_likes - 1;
     this.isLikedPost = !this.isLikedPost;
     this.onLikeTweet.emit(this.tweet.id)
   }

@@ -4,19 +4,24 @@
         <div class="col"><span>{{user?.firstName}} {{user?.lastName}}</span></div>
         <div class="col"><span>@{{user?.account}}</span></div>
         <button mat-button (click)="goBack()">Go back</button>
-        <button mat-button *ngIf="!isFollowing()" (click)="follow()">Follow this person</button>
-        <button mat-button *ngIf="isFollowing()">Unfollow this person</button>
+        <button mat-button *ngIf="!followed" (click)="isFollowing()">Follow this person</button>
+        <button mat-button *ngIf="followed" (click)="stopFollowing()">Unfollow this person</button>
+        <button mat-button (click)="changeOption()">Followers</button>
+        <button mat-button (click)="changeOptionTweets()">Tweets</button>
       </div>
 </mat-card>
   <mat-card *ngIf="!loading" class="content">
-    <div class="user">
-        <div class="row over text"><span>Tweets</span>
+    <div class="user" *ngIf="option == 0">
+        <div><span>Tweets</span>
+          <div class="tweet">
           <app-tweet *ngFor="let tweet of this.tweets" [tweet]="tweet"></app-tweet>
         </div>
-        <div class="row over text"><span>Followers</span>
-          <ul *ngFor="let follower of user.followers">
-            <li>{{follower.firstName}}</li>
-          </ul>
         </div>
     </div>
+    <div class="followers" *ngIf="option == 1"><span>Followers</span>
+      <ul *ngFor="let follower of user.followers">
+        <li>{{follower.firstName}}</li>
+      </ul>
+    </div>
 </mat-card>
+ 

@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
   userId: number;
   loading: boolean = false;
   tweets: Tweet[];
+  option: number = 0;
+  followed: boolean = false;
   constructor(private userService : UserService, private activatedRoute: ActivatedRoute, private router: Router,
               private tweetService: TweetService) { }
 
@@ -57,6 +59,20 @@ export class ProfileComponent implements OnInit {
   }
 
   isFollowing(){
-    return this.currentUser?.following.some((x) => x.id === this.userId);
+    this.followed = true;
+  }
+
+  stopFollowing() {
+    this.followed = false;
+  }
+
+  changeOption() {
+    //shows followers
+    this.option = 1;
+  }
+
+  changeOptionTweets() {
+    //show tweets
+    this.option = 0;
   }
 }

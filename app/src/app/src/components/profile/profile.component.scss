@@ -1,6 +1,6 @@
 .user{
   margin-top: 15px;
-  margin-left: 8px;
+  margin-left: 5%;
 }
 .over{
   // padding: 0;
@@ -66,6 +66,8 @@
   justify-content: flex-start;
   margin-left:15%;
   width: 70%;
+  height: 100%;
+  position: absolute;
 }
 
 .col{
@@ -90,7 +92,7 @@
 .background{
   background-color: white;
   width: 70%;
-  height: 300px;
+  height: 260px;
   margin-left: 15%;
   position: relative;
 }
@@ -98,4 +100,14 @@
 .vl {
   border-left: 6px solid rgb(231, 247, 11);
   height: max-content;
+}
+
+.tweet {
+  flex-direction: column;
+  position: absolute;
+  margin-top: 15px;
+}
+
+.followers{
+  padding: 25px, 25px, 25px, 25px;
 }

@@ -14,7 +14,7 @@
 <mat-menu #userMenu="">
   <div class="user-preview" (click)="$event.stopPropagation()">
     <img src="assets/images/avatar/avatar.jpg" alt="image" class="avatar" />
-    <div class="user-info">
+    <div class="user-info" *ngIf="user">
       <span>{{ user.firstName }} {{ user.lastName }} </span>
     </div>
   </div>

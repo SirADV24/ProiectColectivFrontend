@@ -25,12 +25,8 @@ export class UserProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.data.user)
-    this.userService.getUser().subscribe(user => {
-      this.currentUserAccount = user;
-      this.profileForm = this.buildProfileFormGroup();
-      this.patchProfileFormGroup(this.data.user);
-    });
+    this.profileForm = this.buildProfileFormGroup();
+    this.patchProfileFormGroup(this.data.user);
   }
 
   onDismiss() {
@@ -41,11 +37,11 @@ export class UserProfileComponent implements OnInit {
     const form = this.fb.group(
       {
         email: [
-          { value: this.currentUserAccount.email },
+          { value: '' },
           Validators.compose([Validators.required, Validators.email]),
         ],
-        firstName: [{ value: this.currentUserAccount.firstName }, Validators.required],
-        lastName: [{ value: this.currentUserAccount.lastName }, Validators.required],
+        firstName: [{ value: '' }, Validators.required],
+        lastName: [{ value: '' }, Validators.required],
       },
       {
         updateOn: 'blur',

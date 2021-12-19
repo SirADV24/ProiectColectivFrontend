@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tweet } from '../../model/tweet.model';
 import { User } from '../../model/user.model';
 import { TweetService } from '../../services/tweet.service';
-import { catchError, of, tap } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
 import { LikeService } from '../../services/like.service';
@@ -17,10 +17,10 @@ export class HomePageComponent implements OnInit {
   error: HttpErrorResponse;
   dummyTweets: Tweet[] = [];
   dataTweets: Tweet[] = [];
-
+  user$: Observable<User>;
   dataUser: User;
 
-  constructor(private tweetService: TweetService, private userService : UserService, private likeService: LikeService, private router: Router) {}
+  constructor(private tweetService: TweetService, private activatedRoute: ActivatedRoute, private userService : UserService, private likeService: LikeService, private router: Router) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -63,7 +63,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getUsers(){
-    console.log(this.userService.getUser());
+    this.user$ = this.userService.getUser();
   }
 
   getTweets(){

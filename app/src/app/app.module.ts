@@ -48,7 +48,6 @@ import { RegisterComponentComponent } from './src/components/register-component/
 import { RegisterPageComponent } from './src/containers/register-page/register-page.component';
 import { SidenavComponent } from './src/containers/sidenav/sidenav.component';
 import { TweetFeedComponent } from './src/containers/tweet-feed/tweet-feed.component';
-import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProfilePageComponent } from './src/containers/profile-page/profile-page.component';
 import { ProfileComponent } from './src/components/profile/profile.component';
@@ -57,6 +56,8 @@ import { SearchUserComponent } from './src/components/search-user/search-user.co
 import {NgxMatSelectSearchModule} from "ngx-mat-select-search";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {SearchService} from "./src/services/search.service";
+import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
+import { CommonModule } from '@angular/common';
 
 const MODULES = [
   MatButtonModule,
@@ -123,6 +124,7 @@ const SERVICES = [UserService, TweetService, LikeService, SearchService];
     BrowserAnimationsModule,
     HttpClientModule,
     MatNativeDateModule,
+    CommonModule,
     MODULES,
     MatAutocompleteModule,
   ],

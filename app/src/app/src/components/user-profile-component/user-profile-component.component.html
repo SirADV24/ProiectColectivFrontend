@@ -41,15 +41,6 @@
               Email is not in correct <strong>format</strong>
             </mat-error>
           </mat-form-field>
-
-          <mat-form-field class="full-width">
-            <input matInput type="number" placeholder="Phone Number" formControlName="phoneNumber" />
-            <mat-error
-              *ngIf="profileForm.controls['phoneNumber'].hasError('required')"
-            >
-              Phone number is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
         </form>
       </div>
     </div>
