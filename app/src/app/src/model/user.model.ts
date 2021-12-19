@@ -5,5 +5,7 @@ export interface User{
   lastName: string,
   email?: string,
   phoneNumber?: number,
-  creationDate?: Date
+  creationDate?: Date,
+  following?: User[],
+  followers?: User[]
 }

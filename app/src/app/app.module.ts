@@ -53,6 +53,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ProfilePageComponent } from './src/containers/profile-page/profile-page.component';
 import { ProfileComponent } from './src/components/profile/profile.component';
 import { LikeService } from './src/services/like.service';
+import { SearchUserComponent } from './src/components/search-user/search-user.component';
+import {NgxMatSelectSearchModule} from "ngx-mat-select-search";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {SearchService} from "./src/services/search.service";
 
 const MODULES = [
   MatButtonModule,
@@ -86,7 +90,9 @@ const MODULES = [
   DragDropModule,
   MatExpansionModule,
   MatGridListModule,
-];
+  NgxMatSelectSearchModule
+  ];
+
 const PAGES = [
   LoginPageComponent,
   HomePageComponent,
@@ -104,10 +110,10 @@ const COMPONENTS = [
   ProfilePageComponent
 ];
 
-const SERVICES = [UserService, TweetService, LikeService];
+const SERVICES = [UserService, TweetService, LikeService, SearchService];
 
 @NgModule({
-  declarations: [AppComponent, PAGES, COMPONENTS, ProfileComponent],
+  declarations: [AppComponent, PAGES, COMPONENTS, ProfileComponent, SearchUserComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -118,6 +124,7 @@ const SERVICES = [UserService, TweetService, LikeService];
     HttpClientModule,
     MatNativeDateModule,
     MODULES,
+    MatAutocompleteModule,
   ],
   exports: [MODULES],
   providers: [SERVICES, MODULES],

@@ -1,7 +1,11 @@
 <mat-toolbar>
   <span class="title">Twitter</span>
   <div class="spacer"></div>
-  <a mat-button> <span class="material-icons mr-2"> home </span> Home</a>
+  <app-search-user
+    [searchResults]="searchResult"
+    (getResponses)="getSearchResult($event)"
+  ></app-search-user>
+  <a mat-button (click)="goHome()"> <span class="material-icons mr-2"> home </span> Home</a>
   <a mat-button [matMenuTriggerFor]="userMenu">
     <span class="material-icons mr-2"> account_circle </span> Account
   </a>

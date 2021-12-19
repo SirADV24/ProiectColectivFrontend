@@ -23,5 +23,7 @@ export class CreateTweetComponentComponent {
     console.log(tweetText);
 
     this.onCreateTweet.emit(tweetText);
+    // @ts-ignore
+    this.createTweetForm.controls['text'].setValue("")
   }
 }

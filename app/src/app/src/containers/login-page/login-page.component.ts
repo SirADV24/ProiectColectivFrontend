@@ -24,15 +24,29 @@ export class LoginPageComponent {
           // Navigate to home page if login is successfully
           localStorage.setItem('JWT', response.accessToken);
           this.router.navigate(['home']);
+
+          this.setCurrentUser()
         }),
         catchError((error) => {
           this.error = error;
 
-          return of(false);
+          return of(null);
         })
       )
       .subscribe();
   }
+
+  setCurrentUser(){
+    setTimeout(() => {
+      this.userService.getUser().pipe(
+        tap((x) => {
+          localStorage.setItem('user', JSON.stringify(x));
+          console.log(x);
+        })
+      ).subscribe();
+    })
+  }
+
   onRedirect(){
     this.router.navigate(['register'])
   }

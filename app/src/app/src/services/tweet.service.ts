@@ -6,7 +6,7 @@ import { Tweet } from '../model/tweet.model';
 @Injectable()
 export class TweetService {
   private apiURL = 'http://localhost:8080/api';
-  private headers = new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") });
+
 
   private modals: any[] = [];
 
@@ -51,22 +51,22 @@ export class TweetService {
 
   getPost(){
     return this.httpClient.get<Tweet[]>(
-      `${this.apiURL}/posts`,
-      { headers: this.headers }
+      `${this.apiURL}/posts/followed`,
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
       );
     }
-  
+
   getPostsForUser(id : number){
     return this.httpClient.get<Tweet[]>(
       `${this.apiURL}/posts/${id}`,
-      { headers: this.headers }
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
       );
   }
 
   likePost(postId: number){
     return this.httpClient.get<Tweet>(
       `${this.apiURL}/posts/like/${postId}`,
-      { headers: this.headers }
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
       );
     }
 }
