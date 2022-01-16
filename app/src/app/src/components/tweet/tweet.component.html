@@ -29,12 +29,12 @@
   <div class="card-header">
     <div class="col">
       <div class="row">
-        <img *ngIf="isLikedPost; else notLiked" src="assets/images/avatar/redHeart.png" alt="image" class="heart" (click)="likePost()" />
+        <img *ngIf="isLikedPost(); else notLiked" src="assets/images/avatar/redHeart.png" alt="image" class="heart" (click)="likePost()" />
         <ng-template #notLiked>
           <img src="assets/images/avatar/heart.svg" alt="image" class="heart" (click)="likePost()" />
         </ng-template>
       </div>
-      <div class="row space">&nbsp;{{ tweet.number_likes }}</div>
+      <div class="row space">&nbsp;{{ tweet.liked_by_user_ids.length }}</div>
       <div class="row">
         <img src="assets/images/avatar/message.svg" alt="image" class="heart" (click)="commentPost()" />
       </div>

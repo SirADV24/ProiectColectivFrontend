@@ -12,7 +12,8 @@ export class LikeService {
 
   constructor(private httpClient: HttpClient) {}
 
-  isLikedPostByCurrentUser(tweetId: number){
+  isPostLikedByCurrentUser(tweetId: number){
+    console.log(localStorage.getItem('JWT'));
     return this.httpClient.get<boolean>(
         `${this.apiURL}/like/isPostLikedByUser/${tweetId}`,
         { headers: this.headers }

@@ -14,7 +14,7 @@
     <div class="user" *ngIf="option == 0">
         <div><span>Tweets</span>
           <div class="tweet">
-          <app-tweet *ngFor="let tweet of this.tweets" [tweet]="tweet"></app-tweet>
+          <app-tweet *ngFor="let tweet of this.tweets" [tweet]="tweet" (onLikeTweet)="onLikeTweet($event)"></app-tweet>
         </div>
         </div>
     </div>

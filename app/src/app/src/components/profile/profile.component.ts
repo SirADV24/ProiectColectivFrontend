@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../model/user.model';
 import { UserService } from '../../services/user.service';
-import {ActivatedRoute, Router} from "@angular/router";
-import {tap} from "rxjs";
-import {TweetService} from "../../services/tweet.service";
-import {Tweet} from "../../model/tweet.model";
+import { ActivatedRoute, Router } from "@angular/router";
+import { catchError, of, tap } from "rxjs";
+import { TweetService } from "../../services/tweet.service";
+import { Tweet } from "../../model/tweet.model";
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,7 @@ import {Tweet} from "../../model/tweet.model";
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  error: HttpErrorResponse;
   user: User;
   currentUser: User;
   userId: number;
@@ -19,8 +21,8 @@ export class ProfileComponent implements OnInit {
   tweets: Tweet[];
   option: number = 0;
   followed: boolean = false;
-  constructor(private userService : UserService, private activatedRoute: ActivatedRoute, private router: Router,
-              private tweetService: TweetService) { }
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router,
+    private tweetService: TweetService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
@@ -28,7 +30,7 @@ export class ProfileComponent implements OnInit {
         this.userId = +params.id
         this.loading = true;
         this.getUser();
-        this.tweetService.getPostsForUser(this.userId).subscribe(x => {this.tweets = x});
+        this.tweetService.getPostsForUser(this.userId).subscribe(x => { this.tweets = x });
       })
     ).subscribe();
     this.currentUser = JSON.parse(localStorage.getItem('user'));
@@ -36,7 +38,24 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  getUser(){
+  onLikeTweet(tweetId: number) {
+    this.tweetService
+      .likePost(tweetId)
+      .pipe(
+        tap((response: Tweet) => {
+          const indexTweet = this.tweets.findIndex(tweet => tweet.id === tweetId);
+          this.tweets[indexTweet].liked_by_user_ids = response.liked_by_user_ids;
+        }),
+        catchError((error) => {
+          this.error = error;
+
+          return of(false);
+        })
+      )
+      .subscribe();
+  }
+
+  getUser() {
     this.userService.getUserAccount(this.userId)
       .subscribe((res) => {
         this.user = res;
@@ -48,7 +67,7 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(["home"]);
   }
 
-  follow(){
+  follow() {
     this.userService.followUser(this.userId)
       .pipe(
         tap((x) => {
@@ -58,7 +77,7 @@ export class ProfileComponent implements OnInit {
       .subscribe();
   }
 
-  isFollowing(){
+  isFollowing() {
     this.followed = true;
   }
 
