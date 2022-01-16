@@ -10,6 +10,8 @@ export class TweetService {
 
   private modals: any[] = [];
 
+  private mainId : number;
+
   private accessToken : string | null = localStorage.getItem('JWT');
 
   constructor(private httpClient: HttpClient) {}
@@ -27,31 +29,22 @@ export class TweetService {
     );
   }
 
-  add(modal: any) {
-    // add modal to array of active modals
-    this.modals.push(modal);
-  }
-
-  remove(id: string) {
-    // remove modal from array of active modals
-    this.modals = this.modals.filter((x) => x.id !== id);
-  }
-
-  open(id: string) {
-    // open modal specified by id
-    let modal: any = this.modals.filter((x) => x.id === id)[0];
-    modal.open();
-  }
-
-  close(id: string) {
-    // close modal specified by id
-    let modal: any = this.modals.filter((x) => x.id === id)[0];
-    modal.close();
+  createComment(mainpostId: number, description: string): Observable<Tweet> {
+    const auth: string = "Bearer "+localStorage.getItem('JWT');
+    return this.httpClient.post<Tweet>(
+      `${this.apiURL}/posts/${mainpostId}/comment`,
+      description,
+      {headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Access-Control-Allow-Origin': '*',
+        Authorization : 'Bearer '+localStorage.getItem('JWT')
+      })}
+    );
   }
 
   getPost(){
     return this.httpClient.get<Tweet[]>(
-      `${this.apiURL}/posts/followed`,
+      `${this.apiURL}/posts`,
       { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
       );
     }
@@ -69,4 +62,34 @@ export class TweetService {
       { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
       );
     }
+
+  getMainPost(mainpostId: number){
+    return this.httpClient.get<Tweet>(
+      `${this.apiURL}/posts/${mainpostId}/post`,
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
+      );
+  }
+
+  createMainPost(mainpostId: number, description: string){
+    return this.httpClient.post<Tweet>(
+      `${this.apiURL}/posts/${mainpostId}/comment`,
+      description,
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
+      );
+  }
+
+  getComments(mainpostId: number){
+    return this.httpClient.get<Tweet[]>(
+      `${this.apiURL}/posts/${mainpostId}/comment`,
+      { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem("JWT") }) }
+      );
+    }
+
+  saveMainPostId(id : number){
+    localStorage.setItem("mainId", id.toString());
+  }
+
+  getMainPostId(){
+    return +localStorage.getItem("mainId");
+  }
 }

@@ -1,0 +1,139 @@
+.user{
+  margin-top: 15px;
+  margin-left: 8px;
+}
+.over{
+  // padding: 0;
+  display: flex;
+  justify-content: center;
+  padding-right: 70px;
+  height: 10%;
+  // padding-top: -10px;
+}
+
+.one{
+  margin-left: 5%;
+  // border: solid purple;
+}
+
+.two{
+  // border: solid gray;
+  height: 10%;
+}
+
+.reply{
+  display: flexbox;
+  flex-direction: row;
+  margin-top: 0%;
+  // border: springgreen solid;
+  // justify-content: center;
+}
+
+.blue{
+  // border: solid blue;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+  margin-left: 50px;
+  font-family: "Lucida Handwriting", monospace;
+  font-size: medium;
+  font-style: italic;
+}
+
+.centered{
+  margin-left: 60px;
+}
+
+.heart{
+  height: 20px;
+}
+
+.likes{
+  width: 30%;
+}
+
+.text:hover{
+  color: blue;
+  cursor: pointer;
+}
+
+.space{
+  padding-right: 20px;
+}
+
+.end{
+  width: 100%;
+}
+
+.line{
+  width: 95%;
+  color: black;
+  background-color: blue;
+}
+
+.svg{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.content{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 15px;
+}
+
+.col{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.card-header {
+  margin-top: 0;
+  margin-left: 0%;
+  padding: 0;
+  // border: solid red;
+}
+
+.avatar{
+  margin-top: 5px;
+  width: 120px;
+  border-radius: 60px;
+  height: 120px;
+}
+
+.background{
+  background-color: rgb(183, 253, 250);
+  border-radius: 10px;
+  width: 600px;
+  height: 300px;
+  margin-top: 0px;
+  margin-left: 26%;
+  // border: solid blue;
+  border-color: rgb(144, 42, 165) solid;
+}
+
+.vl {
+  border-left: 6px solid rgb(231, 247, 11);
+  height: max-content;
+}
+
+.comments{
+  position: relative;
+  height: max-content;
+  width: 100%;
+  margin-top:10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.back{
+  display: flex;
+  justify-content: center;
+  margin-left: 45%;
+  margin-top: 5%;
+  height: 10%;
+  width: 10%;
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommentPageComponent } from './src/components/comment-page/comment-page.component';
 import { HomePageComponent } from './src/containers/home-page/home-page.component';
 import { LoginPageComponent } from './src/containers/login-page/login-page.component';
 import { ProfilePageComponent } from './src/containers/profile-page/profile-page.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterPageComponent
+  },
+  {
+    path: 'comments/:id',
+    component: CommentPageComponent
   },
   {
     path: '',

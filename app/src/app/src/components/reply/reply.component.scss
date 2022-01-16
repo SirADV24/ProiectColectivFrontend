@@ -1,0 +1,19 @@
+.create-tweet{
+  position: relative;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-top:-1%;
+  margin-left: 10%;
+}
+
+.tweet-label {
+  width: 500px;
+}
+
+.save-button {
+  position: relative;
+  width: 100px;
+  margin-top:-40px;
+  margin-left: 250px;
+}
