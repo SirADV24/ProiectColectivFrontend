@@ -58,6 +58,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {SearchService} from "./src/services/search.service";
 import { UserProfileComponent } from './src/components/user-profile-component/user-profile-component.component';
 import { CommonModule } from '@angular/common';
+import { CommentPageComponent } from './src/components/comment-page/comment-page.component';
+import { ReplyComponent } from './src/components/reply/reply.component';
 
 const MODULES = [
   MatButtonModule,
@@ -114,7 +116,7 @@ const COMPONENTS = [
 const SERVICES = [UserService, TweetService, LikeService, SearchService];
 
 @NgModule({
-  declarations: [AppComponent, PAGES, COMPONENTS, ProfileComponent, SearchUserComponent],
+  declarations: [AppComponent, PAGES, COMPONENTS, ProfileComponent, SearchUserComponent, CommentPageComponent, ReplyComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

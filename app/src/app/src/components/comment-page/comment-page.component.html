@@ -1,0 +1,19 @@
+<!-- <button>Back to home page</button> -->
+<div class="background">
+  <div class="card-header">
+      <div class="row reply">
+        <div class="col one"><app-tweet [tweet]="mainPost" ></app-tweet></div>
+        <div class="col two"><app-reply (onCreateTweet)="onCreateTweet($event)"></app-reply></div>
+      </div>
+  </div>
+
+<div class="comments">
+  <ng-container>
+    <div *ngFor="let tweet of dataComments">
+      <app-tweet [tweet]="tweet"> </app-tweet>
+    </div>
+  </ng-container>
+</div>
+
+<img src="assets/images/avatar/arrow.svg" alt="image" class="back" (click)="back()" />
+<!-- <button class="back">Back</button> -->

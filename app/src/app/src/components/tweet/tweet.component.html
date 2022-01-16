@@ -36,7 +36,7 @@
       </div>
       <div class="row space">&nbsp;{{ tweet.liked_by_user_ids.length }}</div>
       <div class="row">
-        <img src="assets/images/avatar/message.svg" alt="image" class="heart" />
+        <img src="assets/images/avatar/message.svg" alt="image" class="heart" (click)="commentPost()" />
       </div>
       <div class="row space">&nbsp;{{ tweet.number_comments }}</div>
     </div>

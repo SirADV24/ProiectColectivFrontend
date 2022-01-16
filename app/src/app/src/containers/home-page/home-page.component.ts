@@ -38,7 +38,6 @@ export class HomePageComponent implements OnInit {
       }),
       catchError((error) => {
         this.error = error;
-
         return of(false);
       })
     )
@@ -46,6 +45,7 @@ export class HomePageComponent implements OnInit {
   }
 
   onLikeTweet(tweetId: number) {
+    console.log(tweetId)
     this.tweetService
       .likePost(tweetId)
       .pipe(
@@ -67,6 +67,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getTweets(){
+    // console.log()
     this.tweetService.getPost()
       .subscribe((res) => {
         console.log(res);

@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Tweet } from '../../model/tweet.model';
 import { User } from '../../model/user.model';
 import { LikeService } from '../../services/like.service';
+import { TweetService } from '../../services/tweet.service';
 
 @Component({
   selector: 'app-tweet',
@@ -13,8 +15,8 @@ export class TweetComponent implements OnInit {
 
   @Input() tweet: Tweet;
   @Output() onLikeTweet = new EventEmitter<number>();
-
-  constructor(private likeService: LikeService) { }
+  
+  constructor(public router: Router, private likeService: LikeService, private tweetService: TweetService) {}
 
   ngOnInit() {
     this.tweet.date = new Date(this.tweet.date).toLocaleString();
@@ -35,5 +37,15 @@ export class TweetComponent implements OnInit {
   isLikedPost() {
     return this.tweet.liked_by_user_ids.findIndex((id) => id === JSON.parse(localStorage.getItem('user')).id) !== -1;
   }
+
+  commentPost(){
+      console.log(this.tweet)
+      console.log("here")
+      this.tweetService.saveMainPostId(this.tweet.id);
+      this.router.navigate([`/comments/${this.tweet.id}`])
+      .then(() => {
+        window.location.reload();
+      });
+    }
 
 }

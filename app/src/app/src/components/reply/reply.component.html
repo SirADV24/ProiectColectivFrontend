@@ -1,0 +1,18 @@
+<div class="create-tweet">
+  <form [formGroup]="createTweetForm">
+    <mat-form-field  class="tweet-label">
+      <mat-label>Do you want to add a comment ?</mat-label>
+      <textarea
+        matInput
+        formControlName="text"
+        placeholder="Enter your comment"
+        autocomplete="off"
+      ></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div class="save-button">
+<button mat-button (click)="save()">
+  <span class="h2">Save</span>
+</button>
+</div>
