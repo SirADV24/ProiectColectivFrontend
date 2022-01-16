@@ -51,7 +51,7 @@ export class HomePageComponent implements OnInit {
       .pipe(
         tap((response: Tweet) => {
             const indexTweet = this.dataTweets.findIndex(tweet => tweet.id === tweetId);
-            this.dataTweets[indexTweet].number_likes = response.number_likes;
+            this.dataTweets[indexTweet].liked_by_user_ids = response.liked_by_user_ids;
         }),
         catchError((error) => {
           this.error = error;

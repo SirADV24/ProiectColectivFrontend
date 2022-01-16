@@ -5,6 +5,6 @@ export interface Tweet {
   text: string,
   user: User,
   date: string,
-  number_likes: number,
+  liked_by_user_ids: number[],
   number_comments: number,
 }

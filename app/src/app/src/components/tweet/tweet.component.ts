@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Tweet } from '../../model/tweet.model';
+import { User } from '../../model/user.model';
 import { LikeService } from '../../services/like.service';
 
 @Component({
@@ -12,19 +13,27 @@ export class TweetComponent implements OnInit {
 
   @Input() tweet: Tweet;
   @Output() onLikeTweet = new EventEmitter<number>();
-  isLikedPost : boolean;
 
-  constructor(private likeService: LikeService) {}
+  constructor(private likeService: LikeService) { }
 
   ngOnInit() {
     this.tweet.date = new Date(this.tweet.date).toLocaleString();
-    this.tweet.id !== undefined && this.likeService.isLikedPostByCurrentUser(this.tweet.id).subscribe((response) => this.isLikedPost = response);
   }
 
   likePost() {
-    !this.isLikedPost ? this.tweet.number_likes = this.tweet.number_likes + 1 : this.tweet.number_likes = this.tweet.number_likes - 1;
-    this.isLikedPost = !this.isLikedPost;
+    const indexCurrentUser: number = JSON.parse(localStorage.getItem('user')).id;
+    const indexLike: number = this.tweet.liked_by_user_ids.findIndex((id) => id === indexCurrentUser);
+    if (indexLike !== -1) {
+      this.tweet.liked_by_user_ids.slice(indexLike, 1);
+    }
+    else {
+      this.tweet.liked_by_user_ids.push(indexCurrentUser);
+    }
     this.onLikeTweet.emit(this.tweet.id)
   }
-  
+
+  isLikedPost() {
+    return this.tweet.liked_by_user_ids.findIndex((id) => id === JSON.parse(localStorage.getItem('user')).id) !== -1;
+  }
+
 }

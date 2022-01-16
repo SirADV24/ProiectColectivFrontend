@@ -17,6 +17,9 @@ const routes: Routes = [
   {
     path: 'profile/:id',
     component: ProfilePageComponent,
+    data: {
+      reuseComponent: false
+    }
   },
   {
     path: 'register',

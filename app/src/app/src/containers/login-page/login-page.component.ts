@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ɵɵqueryRefresh } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, of, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { UserService } from './../../services/user.service';
 import { LoginRequest } from '../../model/user/login.request';
+import { BrowserModule, platformBrowser } from '@angular/platform-browser';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-login-page',
@@ -14,7 +16,7 @@ import { LoginRequest } from '../../model/user/login.request';
 export class LoginPageComponent {
   error: HttpErrorResponse;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   onLogin(loginRequest: LoginRequest) {
     this.userService
@@ -25,6 +27,7 @@ export class LoginPageComponent {
           localStorage.setItem('JWT', response.accessToken);
           this.router.navigate(['home']);
 
+          
           this.setCurrentUser()
         }),
         catchError((error) => {
@@ -36,7 +39,7 @@ export class LoginPageComponent {
       .subscribe();
   }
 
-  setCurrentUser(){
+  setCurrentUser() {
     setTimeout(() => {
       this.userService.getUser().pipe(
         tap((x) => {
@@ -47,7 +50,7 @@ export class LoginPageComponent {
     })
   }
 
-  onRedirect(){
+  onRedirect() {
     this.router.navigate(['register'])
   }
 }
